@@ -14,7 +14,7 @@ module.exports = {
       client.channels.cache.get(logchannel).send({
         embeds: [
           new EmbedBuilder()
-            .setColor("0x00ff00")
+            .setColor(0x00ff00)
             .setTitle(`${client.user.username} Bot is online ||@Admin||`)
             .setTimestamp()
             .setFooter({
