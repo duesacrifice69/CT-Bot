@@ -1,27 +1,6 @@
 {
-  "default_prefix": "c!",
-  "owners": "771639970854731808",
-  "#clientId": "946983229674647552",
-  "clientId": "1035485726453805117",
-  "guildId": "885791620878983220",
-  "staffChat": "916339886225772575",
-  "ticketMsgId": "1040902840115265577",
-  "ticketArea": "1040247302855598140",
-  "reactionMsgId": "1040223122890162177",
-  "mainVoiceCategory": "885791621654913056",
-  "mainVoiceChannel": "897617688703139892",
-  "reactionChannelId": "946774339380989962",
-  "internshipsChannel": "1040573817170432060",
-  "serverStatsChannel": "946738562676699216",
-
-  "emoji": {
-    "play": "▶️",
-    "stop": "⏹️",
-    "queue": "📄",
-    "success": "☑️",
-    "repeat": "🔁",
-    "error": "❌"
-  },
-  "YOUTUBE_API_KEY": "AIzaSyBh3IuBJGuNTYp70xeMSUpOBMmW2S5gFSA",
-  "AME_API": "36d73cb74451722a36fe5321526fa29649bdc850444fea8269e6f21276ece44925ae934dd478a803886f53420dfe3e3498f7dc3d0380e278a60d2f50cdc92e72"
+  "clientId": "946955181797560430",
+  "logChannel": "1020462166521937980",
+  "guildId":"885791620878983220",
+  "welcomeChannel":"946737933833089044"
 }

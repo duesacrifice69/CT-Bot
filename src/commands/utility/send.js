@@ -1,20 +1,33 @@
 const { SlashCommandBuilder, PermissionsBitField } = require("discord.js");
 
 module.exports = {
-    data: new SlashCommandBuilder()
-        .setName('send')
-        .setDescription('send messages to a specific channel')
-        .setDefaultMemberPermissions(PermissionsBitField.Flags.ManageMessages),
+  data: new SlashCommandBuilder()
+    .setName("send")
+    .setDescription("send messages to a specific channel")
+    .setDefaultMemberPermissions(PermissionsBitField.Flags.ManageMessages)
+    .addChannelOption((option) =>
+      option
+        .setName("channel")
+        .setDescription("The channel which wants to send the embed")
+        .setRequired(true)
+    )
+    .addStringOption((option) =>
+      option
+        .setName("message")
+        .setDescription("Content of the message")
+        .setRequired(true)
+    ),
 
-    run: async (client, message, args) => {
+  async execute(interaction) {
+    const channel = interaction.options.getChannel("channel");
+    const message = interaction.options
+      .getString("message")
+      .replaceAll("&n;", "\n");
 
-        if (!message.member.hasPermission('ADMINISTRATOR'))
-            return message.reply("You can't you that command!");
-
-        let channel = message.mentions.channels.first() || message.guild.channels.cache.get(args[0]);
-        if (!channel)
-            return message.reply("You must provide a valid channel")
-
-        channel.send(args.slice(1).join(" "))
-    }
-}
+    channel.send({ content: message });
+    interaction.editReply({
+      content: `Your message sent to ${channel}`,
+      ephemeral: true,
+    });
+  },
+};
