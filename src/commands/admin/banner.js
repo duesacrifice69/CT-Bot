@@ -16,6 +16,7 @@ module.exports = {
     ),
 
   async execute(interaction, client) {
+    await interaction.deferReply();
     const banner = interaction.options.getAttachment("banner");
     await client.rest.patch(Routes.user(), {
       body: { banner: await DataResolver.resolveImage(banner.url) },

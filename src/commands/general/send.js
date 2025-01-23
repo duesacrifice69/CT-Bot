@@ -24,8 +24,8 @@ module.exports = {
       .getString("message")
       .replaceAll("&n;", "\n");
 
-    channel.send({ content: message });
-    interaction.editReply({
+    await channel.send({ content: message });
+    await interaction.reply({
       content: `Your message sent to ${channel}`,
       ephemeral: true,
     });

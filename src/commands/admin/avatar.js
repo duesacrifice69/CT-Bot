@@ -14,6 +14,7 @@ module.exports = {
     ),
 
   async execute(interaction, client) {
+    await interaction.deferReply();
     const avatar = interaction.options.getAttachment("avatar");
     await client.user.setAvatar(avatar.url);
     await interaction.editReply({

@@ -132,7 +132,7 @@ module.exports = {
     const url = interaction.options.getString("url");
     const description = interaction.options
       .getString("description")
-      .replaceAll("&n;", "\n");
+      ?.replaceAll("&n;", "\n");
     const footer = interaction.options.getString("footer");
     const color = interaction.options.getString("color");
     const author = interaction.options.getString("author");
@@ -210,8 +210,8 @@ module.exports = {
       embed.addFields(field);
     }
 
-    channel.send({ content, embeds: [embed] });
-    interaction.editReply({
+    await channel.send({ content, embeds: [embed] });
+    await interaction.reply({
       content: `Your message sent to ${channel}`,
       ephemeral: true,
     });

@@ -10,8 +10,14 @@ module.exports = async (client) => {
       .filter((file) => file.endsWith(".js"));
     for (const file of commandsFiles) {
       const command = require(`../../commands/${folder}/${file}`);
-      client.commands.set(command.data.name, command);
-      commandsArray.push(command.data.toJSON());
+      if ("data" in command && "execute" in command) {
+        client.commands.set(command.data.name, command);
+        commandsArray.push(command.data.toJSON());
+      } else {
+        console.log(
+          `[WARNING] The command at /src/commands${folder}/${file} is missing a required "data" or "execute" property.`
+        );
+      }
     }
   }
   const rest = new REST({ version: "10" }).setToken(process.env.TOKEN);
@@ -20,9 +26,16 @@ module.exports = async (client) => {
       `\x1B[93mStarted refreshing application (/) Commands...\x1B[39m`
     );
 
-    await rest.put(Routes.applicationCommands(client.config.clientId), {
-      body: commandsArray,
-    });
+    await rest.put(
+      Routes.applicationGuildCommands(
+        client.config.clientId,
+        client.config.guildId
+      ),
+      {
+        body: commandsArray,
+      }
+    );
+
     console.log(
       `\x1B[92mSuccessfully reloadeded ${commandsArray.length} application (/) Commands\x1B[39m`
     );

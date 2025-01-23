@@ -8,7 +8,7 @@ module.exports = {
     client.guilds.fetch(client.config.guildId).then(async (guild) => {
       client.user.setStatus("online");
       console.log(
-        `\x1B[94mReady ${client.user.tag} is logged in ${guild.name} and online ☑️\x1B[39m`
+        `\x1B[94mReady ${client.user.tag} is logged in and online ☑️\x1B[39m`
       );
       const logchannel = client.config.logChannel;
       client.channels.cache.get(logchannel).send({

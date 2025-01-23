@@ -15,6 +15,6 @@ module.exports = {
       })
       .setFooter({ text: `Requested by ${interaction.user.username}` });
 
-    interaction.editReply({ embeds: [embed], ephemeral: true });
+    await interaction.reply({ embeds: [embed], ephemeral: true });
   },
 };

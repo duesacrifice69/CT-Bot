@@ -25,6 +25,7 @@ client.commands = new Collection();
 client.buttons = new Collection();
 client.selectMenus = new Collection();
 client.modals = new Collection();
+client.queue = new Collection();
 
 client.config = require("../config.json");
 

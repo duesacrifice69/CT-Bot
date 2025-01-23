@@ -6,7 +6,7 @@ module.exports = {
   async execute(member, client) {
     let channel = client.channels.cache.get(client.config.logChannel);
     channel.send({
-      content: `Welcome ${member.user.username} to ${guild.name}!`,
+      content: `Welcome ${member.user.username} to ${member.guild.name}!`,
       embeds: [
         new EmbedBuilder()
           .setColor(0x00ff00)
