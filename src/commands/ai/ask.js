@@ -5,7 +5,6 @@ const OpenAI = require("openai");
 const openai = new OpenAI({
   apiKey: process.env.AI_API_KEY,
   basePath: "https://api.convoai.tech/v1",
-  fetch: fetch,
   dangerouslyAllowBrowser: true,
   baseURL: "https://api.convoai.tech/v1", // Explicitly set the base URL
   timeout: 300000,
