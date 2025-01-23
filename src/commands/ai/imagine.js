@@ -1,10 +1,5 @@
 const { SlashCommandBuilder, EmbedBuilder } = require("discord.js");
-const OpenAI = require("openai");
-
-const openai = new OpenAI({
-  apiKey: process.env.AI_API_KEY,
-  baseURL: "https://api.convoai.tech/v1",
-});
+const openai = require("../../functions/ai/index.js");
 
 const availableModels = {
   "DALL-E 2": "dall-e-2",
