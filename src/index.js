@@ -1,6 +1,14 @@
 require("dotenv").config();
 const { Client, Collection, GatewayIntentBits } = require("discord.js");
 const { readdirSync } = require("node:fs");
+const app = require("express")();
+
+app.get("/", (req, res) => {
+  res.send("Hello World!");
+});
+app.listen(3000, () => {
+  console.log("Server is ready!");
+});
 
 const client = new Client({
   intents: [
